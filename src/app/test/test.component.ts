@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-test',
@@ -6,8 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './test.component.css',
 })
 export class TestComponent {
+  @Input() message: string = '';
   selectedFruit: string = '';
+  @Output() messageEvent = new EventEmitter<string>();
 
+  sendMessage() {
+    this.messageEvent.emit('Hello from Child Component!');
+  }
   selectFruit(fruit: string) {
     this.selectedFruit = fruit;
   }
@@ -27,7 +32,12 @@ export class TestComponent {
     alert(`Hello, ${this.name}!`);
   }
   today: number = Date.now();
-  message: string = 'Hello, Angular!';
+  // message: string = 'Hello, Angular!';
   price: number = 1234.56;
   percentage: number = 0.75;
+  isLoggedIn = false;
+
+  toggleLogin() {
+    this.isLoggedIn = !this.isLoggedIn;
+  }
 }

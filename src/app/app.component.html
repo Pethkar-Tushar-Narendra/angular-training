@@ -1,4 +1,8 @@
 <div bind-class="classForBinding" (click)="onClickHandler($event)">
   {{ variableForInterpolation }}
 </div>
-<app-test />
+<p>{{ receivedMessage }}</p>
+<app-test
+  [message]="parentMessage"
+  (messageEvent)="receiveMessage($event)"
+></app-test>

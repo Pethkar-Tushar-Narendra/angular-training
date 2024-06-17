@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  parentMessage: string = 'Hello from Parent Component!';
   title = 'second-day-training';
   variableForInterpolation = 'variableForInterpolation value';
   stylesForBinding = {
@@ -27,4 +28,9 @@ export class AppComponent {
   onClickHandler = (event: any) => {
     console.log(event.type, 'event type');
   };
+  receivedMessage: string = '';
+
+  receiveMessage(message: string) {
+    this.receivedMessage = message;
+  }
 }

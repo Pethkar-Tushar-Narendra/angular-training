@@ -31,3 +31,14 @@
 <p>Original: {{ message }}</p>
 <p>Reversed: {{ message | reverseString }}</p>
 <p>Percentage: {{ percentage | percent }}</p>
+<div *ngIf="isLoggedIn; else loggedOutTemplate">
+  <p>Welcome back, user!</p>
+</div>
+
+<ng-template #loggedOutTemplate>
+  <p>Please log in.</p>
+</ng-template>
+
+<button (click)="toggleLogin()">Toggle Login Status</button>
+<h2>Child Component</h2>
+<button (click)="sendMessage()">Send Message to Parent</button>
