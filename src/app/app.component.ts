@@ -24,4 +24,7 @@ export class AppComponent {
     };
     return styles;
   }
+  onClickHandler = (event: any) => {
+    console.log(event.type, 'event type');
+  };
 }
