@@ -1,0 +1,33 @@
+<div [ngSwitch]="selectedFruit">
+  <div *ngSwitchCase="'apple'">You selected an Apple.</div>
+  <div *ngSwitchCase="'banana'">You selected a Banana.</div>
+  <div *ngSwitchCase="'cherry'">You selected a Cherry.</div>
+  <div *ngSwitchDefault>Select a fruit.</div>
+</div>
+
+<button (click)="selectFruit('apple')">Apple</button>
+<button (click)="selectFruit('banana')">Banana</button>
+<button (click)="selectFruit('cherry')">Cherry</button>
+<button (click)="selectFruit('')">None</button>
+<ul>
+  <li *ngFor="let item of items; trackBy: trackByFn">{{ item }}</li>
+</ul>
+<div [ngClass]="{ 'red-text': isRed, 'blue-text': !isRed }">
+  This text changes color
+</div>
+<button (click)="toggleColor()">Toggle Color</button>
+<input [(ngModel)]="name" placeholder="Enter your name" />
+<p>Hello, {{ name }}!</p>
+<img [src]="imageUrl" alt="A beautiful view" />
+<button (click)="onClick()">Click Me!</button>
+<p>Today's date: {{ today | date }}</p>
+<p>Formatted date: {{ today | date : "fullDate" }}</p>
+<p>Formatted date: {{ today | date : "shortDate" }}</p>
+<p>Uppercase: {{ message | uppercase }}</p>
+<p>Lowercase: {{ message | lowercase }}</p>
+<p>Price: {{ price | currency }}</p>
+<p>Price (EUR): {{ price | currency : "EUR" }}</p>
+<p>Price (EUR, symbol): {{ price | currency : "EUR" : "symbol" }}</p>
+<p>Original: {{ message }}</p>
+<p>Reversed: {{ message | reverseString }}</p>
+<p>Percentage: {{ percentage | percent }}</p>
